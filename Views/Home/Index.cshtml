@@ -1,0 +1,22 @@
+﻿@using Microsoft.AspNetCore.Http;
+@using Newtonsoft.Json;
+@inject IHttpContextAccessor HttpContextAccessor;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        @if (!String.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Usuario")))
+        {
+            <h1>
+                @HttpContextAccessor.HttpContext.Session.GetString("Usuario")
+            </h1>
+            <br />
+            <br />
+            <br />
+            <br />
+            <hr />
+        }
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
